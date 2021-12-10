@@ -18,5 +18,8 @@ namespace MYAZ201.nTier.DAL.Entities
         // FK
         public int? CategoryId { get; set; }
         public Category Category { get; set; }
+
+        // collection navigation propert
+        public ICollection<BookAuthor> BookAuthors { get; set; }
     }
 }

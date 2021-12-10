@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MYAZ201.nTier.DAL.Entities
 {
@@ -10,5 +11,8 @@ namespace MYAZ201.nTier.DAL.Entities
         public string FullName => 
             string.Concat(FirstName," ", LastName);
         public DateTime CreatedDate { get; set; }
+
+        // collection navigation propert
+        public ICollection<BookAuthor> BookAuthors { get; set; }
     }
 }

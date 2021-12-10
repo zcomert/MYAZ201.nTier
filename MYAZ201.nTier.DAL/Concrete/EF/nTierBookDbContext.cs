@@ -15,6 +15,8 @@ namespace MYAZ201.nTier.DAL.Concrete.EF
         public DbSet<Category> Categories { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<BookDetail> BooksDetails { get; set; }
+        public DbSet<BookAuthor> BookAuthors { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -23,9 +25,11 @@ namespace MYAZ201.nTier.DAL.Concrete.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new BookConfig());
-            modelBuilder.ApplyConfiguration(new CategoryConfig());
             modelBuilder.ApplyConfiguration(new AuthorConfig());
+            modelBuilder.ApplyConfiguration(new BookAuthorConfig());
+            modelBuilder.ApplyConfiguration(new BookConfig());
+            modelBuilder.ApplyConfiguration(new BookDetailConfig());
+            modelBuilder.ApplyConfiguration(new CategoryConfig());
         }
     }
 }
