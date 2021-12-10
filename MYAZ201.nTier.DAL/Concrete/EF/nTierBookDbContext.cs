@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MYAZ201.nTier.DAL.Concrete.EF.Config;
 using MYAZ201.nTier.DAL.Entities;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,13 @@ namespace MYAZ201.nTier.DAL.Concrete.EF
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = nTierBookDb;");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new BookConfig());
+            modelBuilder.ApplyConfiguration(new CategoryConfig());
+            modelBuilder.ApplyConfiguration(new AuthorConfig());
         }
     }
 }
