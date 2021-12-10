@@ -20,6 +20,12 @@ namespace MYAZ201.nTier.DAL.Concrete.EF.Config
                 .HasOne(ba => ba.Author)
                 .WithMany(a => a.BookAuthors)
                 .HasForeignKey(ba => ba.AuthorId);
+
+            builder.HasData(
+                new BookAuthor { BookAuthorId = 1, BookId = 1, AuthorId = 1 },
+                new BookAuthor { BookAuthorId = 2, BookId = 2, AuthorId = 2 },
+                new BookAuthor { BookAuthorId = 3, BookId = 3, AuthorId = 3 }
+            );
         }
     }
 }

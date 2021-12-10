@@ -21,6 +21,27 @@ namespace MYAZ201.nTier.DAL.Concrete.EF.Config
 
             builder.Property(a => a.CreatedDate)
                 .HasDefaultValue(DateTime.Now);
+
+            builder.HasData(
+                new Author
+                {
+                    AuthorId=1,
+                    FirstName = "Chinua",
+                    LastName = "Achebe"
+                },
+                new Author
+                {
+                    AuthorId = 2,
+                    FirstName = "Hans Christian",
+                    LastName = "Andersen"
+                },
+                new Author
+                {
+                    AuthorId = 3,
+                    FirstName = "Dante",
+                    LastName = "Alighieri"
+                }
+            );
         }
     }
 }

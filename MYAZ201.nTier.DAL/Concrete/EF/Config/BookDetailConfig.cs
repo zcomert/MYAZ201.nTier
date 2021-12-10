@@ -21,6 +21,27 @@ namespace MYAZ201.nTier.DAL.Concrete.EF.Config
                 .WithOne(b => b.BookDetail)
                 .HasForeignKey<BookDetail>(bd => bd.BookId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasData(
+                new BookDetail
+                {
+                    BookDetailId=1,
+                    BookId=1,
+                    Year=1958
+                },
+                new BookDetail
+                {
+                    BookDetailId = 2,
+                    BookId = 2,
+                    Year = 1836
+                },
+                new BookDetail
+                {
+                    BookDetailId = 3,
+                    BookId = 3,
+                    Year = 1315
+                }
+            );
         }
     }
 }

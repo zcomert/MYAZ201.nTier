@@ -11,7 +11,9 @@ namespace MYAZ201.nTier.DAL.Entities
         public int BookId { get; set; }
         public string Title { get; set; }
         public decimal Price { get; set; }
+        public string  ImageURL { get; set; }
         public DateTime CreatedDate { get; set; }
+
 
         // navigation property
         public BookDetail BookDetail { get; set; }

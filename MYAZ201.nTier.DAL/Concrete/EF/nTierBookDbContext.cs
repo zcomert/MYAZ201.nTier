@@ -25,11 +25,13 @@ namespace MYAZ201.nTier.DAL.Concrete.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new AuthorConfig());
-            modelBuilder.ApplyConfiguration(new BookAuthorConfig());
-            modelBuilder.ApplyConfiguration(new BookConfig());
-            modelBuilder.ApplyConfiguration(new BookDetailConfig());
-            modelBuilder.ApplyConfiguration(new CategoryConfig());
+            //modelBuilder.ApplyConfiguration(new AuthorConfig());
+            //modelBuilder.ApplyConfiguration(new BookAuthorConfig());
+            //modelBuilder.ApplyConfiguration(new BookConfig());
+            //modelBuilder.ApplyConfiguration(new BookDetailConfig());
+            //modelBuilder.ApplyConfiguration(new CategoryConfig());
+
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AuthorConfig).Assembly);
         }
     }
 }

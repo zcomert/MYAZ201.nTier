@@ -28,6 +28,30 @@ namespace MYAZ201.nTier.DAL.Concrete.EF.Config
                 .WithMany(c => c.Books)
                 .HasForeignKey(c => c.CategoryId)
                 .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasData(
+                new Book
+                {
+                    BookId=1,
+                    Title = "Things Fall Apart",
+                    ImageURL = "things-fall-apart.jpg",
+                    CategoryId = 1,
+                },
+                new Book
+                {
+                    BookId = 2,
+                    Title = "Fairy tales",
+                    ImageURL = "fairy-tales.jpg",
+                    CategoryId = 1
+                },
+                new Book
+                {
+                    BookId = 3,
+                    Title = "The Divine Comedy",
+                    ImageURL = "the-divine-comedy.jpg",
+                    CategoryId = 1
+                }
+            );
         }
     }
 }

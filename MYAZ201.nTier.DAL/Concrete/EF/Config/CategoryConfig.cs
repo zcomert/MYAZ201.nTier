@@ -13,6 +13,24 @@ namespace MYAZ201.nTier.DAL.Concrete.EF.Config
             builder.Property(c => c.CategoryName)
                 .IsRequired();
 
+            builder.HasData(
+                new Category
+                {
+                    CategoryId = 1,
+                    CategoryName ="Action and Adventure"
+                },
+                new Category
+                {
+                    CategoryId=2,
+                    CategoryName = "Classic"
+                },
+                new Category
+                {
+                    CategoryId =3,
+                    CategoryName = "Computer Science"
+                }
+            );
+
         }
     }
 }
