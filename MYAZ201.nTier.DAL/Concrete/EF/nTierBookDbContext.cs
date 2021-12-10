@@ -4,6 +4,7 @@ using MYAZ201.nTier.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,7 +32,8 @@ namespace MYAZ201.nTier.DAL.Concrete.EF
             //modelBuilder.ApplyConfiguration(new BookDetailConfig());
             //modelBuilder.ApplyConfiguration(new CategoryConfig());
 
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AuthorConfig).Assembly);
+            // modelBuilder.ApplyConfigurationsFromAssembly(typeof(AuthorConfig).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
