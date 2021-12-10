@@ -23,6 +23,11 @@ namespace MYAZ201.nTier.DAL.Concrete.EF.Config
 
             builder.Property(b => b.CreatedDate)
                 .HasDefaultValue(DateTime.Now);
+
+            builder.HasOne(b => b.Category)
+                .WithMany(c => c.Books)
+                .HasForeignKey(c => c.CategoryId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }
