@@ -20,7 +20,7 @@ namespace MYAZ201.nTier.DAL.Concrete.EF
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = nTierBookDb;");
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=nTierBookDb;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
