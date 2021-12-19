@@ -1,4 +1,5 @@
 ﻿using MYAZ201.nTier.Business.Interfaces;
+using MYAZ201.nTier.Business.Utilities.Results;
 using MYAZ201.nTier.DAL.Abstract;
 using MYAZ201.nTier.DAL.Entities;
 using System;
@@ -19,29 +20,72 @@ namespace MYAZ201.nTier.Business.Services
             _bookDal = bookDal;
         }
 
-        public void Add(Book entity)
+        public IResult Add(Book entity)
         {
-            _bookDal.Add(entity);
+            try
+            {
+                _bookDal.Add(entity);
+                return Result.SuccessResult("The book has been added.");
+            }
+            catch (Exception ex)
+            {
+                return Result.ErrorResult(ex.Message);
+            }
+          
         }
 
-        public void Delete(Book entity)
+        public IResult Delete(Book entity)
         {
-            _bookDal.Delete(entity);
+            try
+            {
+                _bookDal.Delete(entity);
+                return Result.SuccessResult("The book has been removed.");
+            }
+            catch (Exception ex)
+            {
+                return Result.ErrorResult(ex.Message);
+            }
         }
 
-        public Book Get(Expression<Func<Book, bool>> filter)
+        public IDataResult<Book> Get(Expression<Func<Book, bool>> filter)
         {
-            return _bookDal.Get(filter);
+            Book data = null;
+            try
+            {
+                data = _bookDal.Get(filter);
+                return DataResult<Book>.SuccessDataResult(data, "The book has been read.");
+            }
+            catch (Exception ex)
+            {
+                return ErrorDataResult<Book>.ErrorDataResult(data, ex.Message);
+            }
         }
 
-        public List<Book> GetAll(Expression<Func<Book, bool>> filter = null)
+        public IDataResult<List<Book>> GetAll(Expression<Func<Book, bool>> filter = null)
         {
-            return _bookDal.GetAll(filter);
+            List<Book> data = null;
+            try
+            {
+                data = _bookDal.GetAll(filter);
+                return DataResult<List<Book>>.SuccessDataResult(data, "The book list has been retrieved.");
+            }
+            catch (Exception ex)
+            {
+                return DataResult<List<Book>>.ErrorDataResult(data, ex.Message);
+            }
         }
 
-        public void Update(Book entity)
+        public IResult Update(Book entity)
         {
-            _bookDal.Update(entity);
+            try
+            {
+                _bookDal.Update(entity);
+                return Result.SuccessResult("The book has been updated.");
+            }
+            catch (Exception ex)
+            {
+                return Result.ErrorResult(ex.Message);
+            }
         }
     }
 }
