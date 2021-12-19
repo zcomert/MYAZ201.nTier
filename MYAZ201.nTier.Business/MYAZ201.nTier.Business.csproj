@@ -5,8 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\" />
-    <Folder Include="Abstract\" />
+    <ProjectReference Include="..\MYAZ201.nTier.DAL\MYAZ201.nTier.DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
