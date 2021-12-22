@@ -13,6 +13,7 @@ MYAZ201 koduna sahip Yazılım Gereksinimleri ve Modelleme dersine ait olan uygu
 
 # Yazılım Evi Youtube Kanalı
 Proje ait Youtube videolarına erişim sağlayabilirsiniz. 
+
 https://www.youtube.com/watch?v=oI44e7Kb0XI&list=PLK37qYAhi0Ec8_8aX3RKHjzZvRNr-mAl3&index=54
 
 # Doküman 
