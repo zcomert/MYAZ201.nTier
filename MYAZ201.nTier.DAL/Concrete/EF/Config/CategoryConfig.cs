@@ -11,26 +11,17 @@ namespace MYAZ201.nTier.DAL.Concrete.EF.Config
             builder.HasKey(c => c.CategoryId);
 
             builder.Property(c => c.CategoryName)
-                .IsRequired();
+                .IsRequired()
+                .HasMaxLength(200);
+
+            builder.Property(c => c.Description)
+                .HasDefaultValue("No info.");
 
             builder.HasData(
-                new Category
-                {
-                    CategoryId = 1,
-                    CategoryName ="Action and Adventure"
-                },
-                new Category
-                {
-                    CategoryId=2,
-                    CategoryName = "Classic"
-                },
-                new Category
-                {
-                    CategoryId =3,
-                    CategoryName = "Computer Science"
-                }
+                new Category { CategoryId = 1, CategoryName = "Computer Science" },
+                new Category { CategoryId = 2, CategoryName = "Classic" },
+                new Category { CategoryId = 3, CategoryName = "Literature" }
             );
-
         }
     }
 }

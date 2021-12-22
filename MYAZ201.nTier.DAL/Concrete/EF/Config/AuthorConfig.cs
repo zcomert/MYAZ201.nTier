@@ -11,35 +11,24 @@ namespace MYAZ201.nTier.DAL.Concrete.EF.Config
         {
             builder.HasKey(a => a.AuthorId);
 
-            builder.Property(a => a.FirstName)
-                .IsRequired();
-
-            builder.Property(a => a.LastName)
-                .IsRequired();
-
-            builder.Ignore(a => a.FullName);
-
             builder.Property(a => a.CreatedDate)
-                .HasDefaultValue(DateTime.Now);
+                .HasDefaultValueSql("GETDATE()");
 
             builder.HasData(
                 new Author
                 {
-                    AuthorId=1,
-                    FirstName = "Chinua",
-                    LastName = "Achebe"
+                    AuthorId = 1,
+                    FullName = "Zafer CÖMERT"
                 },
                 new Author
                 {
                     AuthorId = 2,
-                    FirstName = "Hans Christian",
-                    LastName = "Andersen"
+                    FullName = "Ahmet Can"
                 },
                 new Author
                 {
                     AuthorId = 3,
-                    FirstName = "Dante",
-                    LastName = "Alighieri"
+                    FullName = "Fatih Mehmet Çelik"
                 }
             );
         }

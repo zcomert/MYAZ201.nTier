@@ -9,19 +9,25 @@ namespace MYAZ201.nTier.DAL.Entities
     public class Book
     {
         public int BookId { get; set; }
+
         public string Title { get; set; }
-        public decimal Price { get; set; }
-        public string  ImageURL { get; set; }
+
         public DateTime CreatedDate { get; set; }
 
+        public decimal Price { get; set; }
+
+        public string ImageURL { get; set; }
+
+        // foreign key
+        public int? CategoryId { get; set; }
+
+        // simple navigation property
+        public Category Category { get; set; }
 
         // navigation property
         public BookDetail BookDetail { get; set; }
-        // FK
-        public int? CategoryId { get; set; }
-        public Category Category { get; set; }
 
-        // collection navigation propert
+        // collection navigation property
         public ICollection<BookAuthor> BookAuthors { get; set; }
     }
 }

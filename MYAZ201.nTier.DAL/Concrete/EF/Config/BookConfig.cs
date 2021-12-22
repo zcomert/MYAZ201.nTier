@@ -16,42 +16,25 @@ namespace MYAZ201.nTier.DAL.Concrete.EF.Config
             builder.HasKey(b => b.BookId);
 
             builder.Property(b => b.Title)
-                .IsRequired();
-
-            builder.Property(b => b.Price)
-                .HasDefaultValue(0);
+                .IsRequired()
+                .HasMaxLength(250);
 
             builder.Property(b => b.CreatedDate)
-                .HasDefaultValue(DateTime.Now);
+                .HasDefaultValueSql("GETDATE()");
+
+            builder.Property(b => b.ImageURL)
+                .HasDefaultValue("/images/default.jpg");
+
+            builder.HasData(
+                new Book { BookId = 1, Title = "Yazılım Evi", CategoryId = 1 },
+                new Book { BookId = 2, Title = "Nesne Yönelimli Programlama", CategoryId = 1 },
+                new Book { BookId = 3, Title = "Yazılım Gereksinimi ve Modelleme", CategoryId = 1 }
+            );
 
             builder.HasOne(b => b.Category)
                 .WithMany(c => c.Books)
-                .HasForeignKey(c => c.CategoryId)
+                .HasForeignKey(b => b.CategoryId)
                 .OnDelete(DeleteBehavior.SetNull);
-
-            builder.HasData(
-                new Book
-                {
-                    BookId=1,
-                    Title = "Things Fall Apart",
-                    ImageURL = "things-fall-apart.jpg",
-                    CategoryId = 1,
-                },
-                new Book
-                {
-                    BookId = 2,
-                    Title = "Fairy tales",
-                    ImageURL = "fairy-tales.jpg",
-                    CategoryId = 1
-                },
-                new Book
-                {
-                    BookId = 3,
-                    Title = "The Divine Comedy",
-                    ImageURL = "the-divine-comedy.jpg",
-                    CategoryId = 1
-                }
-            );
         }
     }
 }

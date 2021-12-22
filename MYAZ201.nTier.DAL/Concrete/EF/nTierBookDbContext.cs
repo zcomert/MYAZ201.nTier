@@ -31,8 +31,8 @@ namespace MYAZ201.nTier.DAL.Concrete.EF
             //modelBuilder.ApplyConfiguration(new BookConfig());
             //modelBuilder.ApplyConfiguration(new BookDetailConfig());
             //modelBuilder.ApplyConfiguration(new CategoryConfig());
-
             // modelBuilder.ApplyConfigurationsFromAssembly(typeof(AuthorConfig).Assembly);
+            
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
