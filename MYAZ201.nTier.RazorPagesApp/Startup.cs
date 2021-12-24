@@ -28,8 +28,6 @@ namespace MYAZ201.nTier.RazorPagesApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddSingleton<IBookService, BookService>();
-            services.AddSingleton<IBookDal, EfBookDal>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
