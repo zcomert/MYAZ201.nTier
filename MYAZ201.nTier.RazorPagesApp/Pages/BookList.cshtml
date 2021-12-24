@@ -1,0 +1,13 @@
+﻿@page
+@model MYAZ201.nTier.RazorPagesApp.Pages.BookListModel
+@{
+}
+
+<ul>
+    @foreach(var book in Model.BookList)
+    {
+        <li>
+            @book.Title
+        </li>
+    }
+</ul>

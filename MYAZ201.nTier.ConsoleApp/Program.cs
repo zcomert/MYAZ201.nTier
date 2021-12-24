@@ -1,4 +1,5 @@
-﻿using MYAZ201.nTier.DAL.Concrete.EF;
+﻿using MYAZ201.nTier.Business.Services;
+using MYAZ201.nTier.DAL.Concrete.EF;
 using MYAZ201.nTier.DAL.Entities;
 using System;
 
@@ -8,22 +9,16 @@ namespace MYAZ201.nTier.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var book = new Book
+            var _bookService = new BookService(new EfBookDal());
+            var result = _bookService.GetAll();
+
+            if (result.Success)
             {
-                Title = "The Epic Of Gilgamesh",
-                Price = 120,
-                CategoryId = 1
-            };
-
-            var _bookDal = new EfBookDal();
-            _bookDal.Add(book);
-
-            _bookDal
-                .GetAll()
-                .ForEach(book =>
-                        Console
-                        .WriteLine(book.Title));
-
+                result
+                    .Data
+                    .ForEach(b => Console.WriteLine(b.Title));
+            }
+            
             Console.ReadLine();
         }
     }

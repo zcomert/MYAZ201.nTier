@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MYAZ201.nTier.Business.Interfaces;
+using MYAZ201.nTier.Business.Services;
+using MYAZ201.nTier.DAL.Abstract;
+using MYAZ201.nTier.DAL.Concrete.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +28,8 @@ namespace MYAZ201.nTier.RazorPagesApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddSingleton<IBookService, BookService>();
+            services.AddSingleton<IBookDal, EfBookDal>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
