@@ -75,6 +75,20 @@ namespace MYAZ201.nTier.Business.Services
             }
         }
 
+        public IDataResult<List<Book>> GetBooksWithDetails(Expression<Func<Book, bool>> filter=null)
+        {
+            List<Book> data = null;
+            try
+            {
+                data = _bookDal.GetBooksWithDetails(filter);
+                return DataResult<List<Book>>.SuccessDataResult(data, "Ok");
+            }
+            catch (Exception ex)
+            {
+                return DataResult<List<Book>>.ErrorDataResult(data,ex.Message);
+            }
+        }
+
         public IResult Update(Book entity)
         {
             try

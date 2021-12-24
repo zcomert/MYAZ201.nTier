@@ -16,7 +16,7 @@ namespace MYAZ201.nTier.MVCApp.Controllers
 
         public IActionResult Index()
         {
-            var result = _bookService.GetAll();
+            var result = _bookService.GetBooksWithDetails();
             if (result.Success)
             {
                 return View(result.Data);

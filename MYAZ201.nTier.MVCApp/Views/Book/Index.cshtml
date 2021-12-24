@@ -1,9 +1,29 @@
 ﻿@model List<Book>
-    <ul>
+    <div class="container">
+        <div class="row">
         @foreach(var book in Model)
-    {
-        <li>
-            @book.Title
-        </li>
-    }
-</ul>
+        {
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 p-3">
+                <div class="card" style="width: 18rem;">
+                      <img src="/images/@book.ImageURL" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">@book.Title</h5>
+                        <p class="card-text">
+                            <h3 class="display-6 text-danger text-center">
+                                @book.Price $
+                            </h3>
+                        </p>
+                      </div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">@book.BookDetail.Country</li>
+                        <li class="list-group-item">@book.BookDetail.Language</li>
+                        <li class="list-group-item">@book.BookDetail.NumberOfPage</li>
+                      </ul>
+                      <div class="card-body">
+                        <a class="btn btn-primary" href="@book.BookDetail.Link" target="_blank" class="card-link">Learn more</a>
+                      </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

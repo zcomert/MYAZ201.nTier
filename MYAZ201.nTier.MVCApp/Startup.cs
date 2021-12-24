@@ -44,6 +44,7 @@ namespace MYAZ201.nTier.MVCApp
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+            
             app.UseStaticFiles();
 
             app.UseRouting();
