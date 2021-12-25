@@ -7,7 +7,7 @@ Mühendislik Fakültesi
 
 Yazılım Mühendisliği Bölümü
 
-MYAZ201 koduna sahip Yazılım Gereksinimleri ve Modelleme dersine ait olan uygulama projesidir. Katmanlı mimarinin uygulaması gerçekleştirmek Blank Solution ile yeni bir proje oluşturuyoruz. Projemizi GitHub üzerinde paylaşıma açıyoruz ve her bir adımı bir Branch olarak tanımlayıp, projenin farklı aşamalarına istediğiniz gibi odaklanabilmenizi hedefliyoruz.
+MYAZ201 koduna sahip Yazılım Gereksinimleri ve Modelleme dersine ait olan uygulama projesidir. Katmanlı mimarinin uygulaması gerçekleştirmek için Blank Solution ile yeni bir proje oluşturuyoruz. Projemizi GitHub üzerinde paylaşıma açıyoruz ve her bir adımı bir Branch olarak tanımlayıp, projenin farklı aşamalarına istediğiniz gibi odaklanabilmenizi hedefliyoruz.
 
 
 
