@@ -1,5 +1,5 @@
 # MYAZ201.nTier
-nTier Architecture
+nTier Architecture (Katmanlı Mimari Çalışması)
 
 Samsun Üniversitesi
 
