@@ -26,9 +26,9 @@ namespace MYAZ201.nTier.DAL.Concrete.EF.Config
                 .HasDefaultValue("/images/default.jpg");
 
             builder.HasData(
-                new Book { BookId = 1, Title = "Yazılım Evi", CategoryId = 1 },
-                new Book { BookId = 2, Title = "Nesne Yönelimli Programlama", CategoryId = 1 },
-                new Book { BookId = 3, Title = "Yazılım Gereksinimi ve Modelleme", CategoryId = 1 }
+                new Book { BookId = 1, Title = "Yazılım Evi", CategoryId = 1, ImageURL= "yazilimEvi.png" },
+                new Book { BookId = 2, Title = "Nesne Yönelimli Programlama", CategoryId = 1, ImageURL= "nesneYonelimliProgramlama.png" },
+                new Book { BookId = 3, Title = "Yazılım Gereksinimi ve Modelleme", CategoryId = 1, ImageURL= "myaz201.png" }
             );
 
             builder.HasOne(b => b.Category)
