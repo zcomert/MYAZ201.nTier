@@ -10,14 +10,29 @@ namespace MYAZ201.nTier.ConsoleApp
         static void Main(string[] args)
         {
             var _bookService = new BookService(new EfBookDal());
-            var result = _bookService.GetAll();
 
-            if (result.Success)
+            var book = new Book
             {
-                result
-                    .Data
-                    .ForEach(b => Console.WriteLine(b.Title));
+                Title ="C#",
+                Price = 120
+            };
+
+            var result = _bookService.Add(book);
+            
+            if (!result.Success)
+            {
+                Console.WriteLine(result.Message);
+                foreach (var err in result.Errors)
+                {
+                    Console.WriteLine(err.Message);
+                }
             }
+            else
+            {
+                Console.WriteLine("Ok...");
+            }
+            
+            
             
             Console.ReadLine();
         }

@@ -13,4 +13,6 @@
     <ProjectReference Include="..\MYAZ201.nTier.Business\MYAZ201.nTier.Business.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1development_1json__JsonSchema="https://docs.gradle.com/build-cache-node/schema/build-cache-node-config-schema-3.json" /></VisualStudio></ProjectExtensions>
+
 </Project>

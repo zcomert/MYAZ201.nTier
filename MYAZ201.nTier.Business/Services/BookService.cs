@@ -1,5 +1,6 @@
 ﻿using MYAZ201.nTier.Business.Interfaces;
 using MYAZ201.nTier.Business.Utilities.Results;
+using MYAZ201.nTier.Business.Utilities.Rules;
 using MYAZ201.nTier.DAL.Abstract;
 using MYAZ201.nTier.DAL.Entities;
 using System;
@@ -24,6 +25,15 @@ namespace MYAZ201.nTier.Business.Services
         {
             try
             {
+                var results = BusinessRules.Apply(
+                    CheckBookTitleCannotBeNull(entity),
+                    CheckBookTitleIsUsedBefore(entity),
+                    CheckBookPrice(entity)
+                    );
+
+                if (results.Count > 0)
+                    return Result.Invalid(results, "Failed!");
+                
                 _bookDal.Add(entity);
                 return Result.SuccessResult("The book has been added.");
             }
@@ -101,5 +111,22 @@ namespace MYAZ201.nTier.Business.Services
                 return Result.ErrorResult(ex.Message);
             }
         }
+
+        public IResult CheckBookTitleCannotBeNull(Book book) => book.Title == null ?
+                            Result.ErrorResult("Books.Title cannot be null!") :
+                            Result.SuccessResult();
+        
+        public IResult CheckBookTitleIsUsedBefore(Book book)
+        {
+            var result = _bookDal.Get(b => b.Title.Equals(book.Title));
+            return result == null ?
+                Result.SuccessResult() :
+                Result.ErrorResult("Books.Title has been already used.");
+        }
+
+        public IResult CheckBookPrice(Book book) =>
+            book.Price < 100 ?
+            Result.ErrorResult("Books.Price must be greater than $100") :
+            Result.SuccessResult();
     }
 }
