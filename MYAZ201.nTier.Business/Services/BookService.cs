@@ -1,4 +1,5 @@
 ﻿using MYAZ201.nTier.Business.Interfaces;
+using MYAZ201.nTier.Business.Utilities.Aspects;
 using MYAZ201.nTier.Business.Utilities.Results;
 using MYAZ201.nTier.Business.Utilities.Rules;
 using MYAZ201.nTier.DAL.Abstract;
@@ -44,17 +45,11 @@ namespace MYAZ201.nTier.Business.Services
           
         }
 
+        [CommonAspect]
         public IResult Delete(Book entity)
         {
-            try
-            {
-                _bookDal.Delete(entity);
-                return Result.SuccessResult("The book has been removed.");
-            }
-            catch (Exception ex)
-            {
-                return Result.ErrorResult(ex.Message);
-            }
+            _bookDal.Delete(entity);
+            return Result.SuccessResult("The book has been removed.");
         }
 
         public IDataResult<Book> Get(Expression<Func<Book, bool>> filter)
@@ -85,6 +80,7 @@ namespace MYAZ201.nTier.Business.Services
             }
         }
 
+        [CommonAspect]
         public IDataResult<List<Book>> GetBooksWithDetails(Expression<Func<Book, bool>> filter=null)
         {
             List<Book> data = null;
